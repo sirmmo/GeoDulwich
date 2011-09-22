@@ -38,7 +38,7 @@ class MongoRedisGeoRepo(GeoRepo):
         self.db = self.connection[db_name]
         object_store = ObjectStoreImplementation(self.db[store_name])
         self._named_files = self.connection["named_files"][db_name]
-        refs = RefsContainerImplementation(self.db[refs_name])
+        refs = RefsContainerImplementation(db_name)
         
         super(MongoRedisGeoRepo, self).__init__(object_store, refs)
         
