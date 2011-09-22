@@ -23,10 +23,11 @@ import logbook
 log = logbook.Logger('geodulwich-refs_container-redis')
 
 import redis 
+red = redis.Redis()
 
 class RefsContainerImplementation(RefsContainer):
     def __init__(self, container):
-        self.db = redis.Redis()
+        self.db = red
         self.container = container
          
         super(RefsContainerImplementation, self).__init()
