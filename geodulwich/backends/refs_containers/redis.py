@@ -22,7 +22,7 @@ from dulwich.repo import BaseRepo
 import logbook
 log = logbook.Logger('geodulwich-refs_container-redis')
 
-from redis import * 
+from redis import Redis 
 
 class RefsContainerImplementation(RefsContainer):
     def __init__(self, container):
