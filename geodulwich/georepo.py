@@ -44,14 +44,14 @@ class MongoRedisGeoRepo(BaseRepo):
         super(MongoRedisGeoRepo, self).__init__(object_store, refs)
         
     def _put_named_file(self, path, contents):
-        content = self._stringify(contents)
+        content = _stringify(contents)
         
         self._named_files.save({'_id':path, "content":content})
         
     def get_named_file(self, path):
         file = self._named_files.find_one({'_id':path})
         if file:
-            return self._unstringify(file['content'])
+            return _unstringify(file['content'])
         return None
     
     def open_index(self):
