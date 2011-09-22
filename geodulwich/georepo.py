@@ -39,7 +39,7 @@ class MongoRedisGeoRepo(BaseRepo):
         self._named_files = self.connection["%s-%s" % (db_name, "named_files", )]
         refs = RefsContainerImplementation(self.db[refs_name])
         
-        super(MongoRepo, self).__init__(object_store, refs)
+        super(MongoRedisGeoRepo, self).__init__(object_store, refs)
         
     def _put_named_file(self, path, contents):
         content = self._stringify(contents)
