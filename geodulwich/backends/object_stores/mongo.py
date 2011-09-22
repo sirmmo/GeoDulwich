@@ -32,7 +32,7 @@ log = logbook.Logger('geodulwich-object_store-mongo')
 class ObjectStoreImplementation(GeoObjectStore):
     def __init__(self, store_db):
         
-        super(MongoObjectStore, self).__init__()
+        super(ObjectStoreImplementation, self).__init__()
         self._data = store_db
 
     def contains_loose(self, sha):
