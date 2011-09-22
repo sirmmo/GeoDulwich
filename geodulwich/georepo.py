@@ -24,8 +24,8 @@ from dulwich.repo import BaseRepo
 import logbook
 log = logbook.Logger('geogit')
 
-from geodulwich.backends.refs_containers.redis import RefsContainerImplementation
-from geodulwich.backends.object_stores.mongo import ObjectStoreImplementation
+from geodulwich.backends.refs_containers.redisrc import RefsContainerImplementation
+from geodulwich.backends.object_stores.mongoos import ObjectStoreImplementation
 
 import pickle
 
