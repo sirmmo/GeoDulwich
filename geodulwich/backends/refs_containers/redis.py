@@ -13,8 +13,6 @@ from dulwich.objects import Blob
 from dulwich.pack import PackData, iter_sha1, write_pack_index_v2, Pack, load_pack_index_file
 from cStringIO import StringIO
 
-from pymongo import Connection
-
 # for the refstore
 from dulwich.repo import RefsContainer, SYMREF
 
@@ -22,7 +20,7 @@ from dulwich.repo import RefsContainer, SYMREF
 from dulwich.repo import BaseRepo
 
 import logbook
-log = logbook.Logger('geodulwich-redis-refscontainer')
+log = logbook.Logger('geodulwich-refs_container-redis')
 
 import redis 
 

@@ -25,7 +25,7 @@ from dulwich.repo import BaseRepo
 
 from geodulwich.backends.object_stores import GeoObjectStore
 import logbook
-log = logbook.Logger('geogit')
+log = logbook.Logger('geodulwich-object_store-mongo')
 
 
 
