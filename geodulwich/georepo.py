@@ -35,9 +35,9 @@ class MongoRedisGeoRepo(BaseRepo):
     def __init__(self, db_name, store_name, refs_name, host="localhost", port=27017):
         self.connection = Connection(host, port)
         self.db = self.connection[db_name]
-        object_store = MongoObjectStore(self.db[store_name])
+        object_store = ObjectStoreImplementation(self.db[store_name])
         self._named_files = self.connection["%s-%s" % (db_name, "named_files", )]
-        refs = RedisRefsContainer(self.db[refs_name])
+        refs = RefsContainerImplementation(self.db[refs_name])
         
         super(MongoRepo, self).__init__(object_store, refs)
         
