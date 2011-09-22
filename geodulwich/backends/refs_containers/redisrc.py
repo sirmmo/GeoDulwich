@@ -80,6 +80,9 @@ class RefsContainerImplementation(RefsContainer):
 
         self.db.delete(self._calc_ref_path(name))
         return True
-
+    
+    def __getitem__(self, name):
+        name = "%s::%s" % (self.container, name) 
+        
     
     
