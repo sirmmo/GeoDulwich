@@ -29,8 +29,6 @@ class RefsContainerImplementation(RefsContainer):
         self.db = Redis()
 
         self.container = container
-         
-        super(RefsContainerImplementation, self).__init()
         
     def _calc_ref_path(self, ref):
         return '%s::%s' % (self.container, ref)
