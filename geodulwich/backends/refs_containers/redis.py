@@ -22,12 +22,12 @@ from dulwich.repo import BaseRepo
 import logbook
 log = logbook.Logger('geodulwich-refs_container-redis')
 
-import redis 
-red = redis.Redis()
+from redis import * 
 
 class RefsContainerImplementation(RefsContainer):
     def __init__(self, container):
-        self.db = red
+        self.db = Redis()
+
         self.container = container
          
         super(RefsContainerImplementation, self).__init()
