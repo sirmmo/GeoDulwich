@@ -25,14 +25,14 @@ log = logbook.Logger('geodulwich-refs_container-redis')
 import redis 
 
 class RefsContainerImplementation(RefsContainer):
-    def __init__(self, container, db_num=1):
-        self.db = redis.Redis(db=db_num)
+    def __init__(self, container):
+        self.db = redis.Redis()
         self.container = container
          
         super(RefsContainerImplementation, self).__init()
         
     def _calc_ref_path(self, ref):
-        return '%s%s' % (self.container, ref)
+        return '%s::%s' % (self.container, ref)
 
     def allkeys(self):
         return self.db.keys()
