@@ -29,7 +29,7 @@ log = logbook.Logger('geodulwich-object_store-mongo')
 
 
 
-class MongoObjectStore(GeoObjectStore):
+class ObjectStoreImplementation(GeoObjectStore):
     def __init__(self, store_db):
         
         super(MongoObjectStore, self).__init__()

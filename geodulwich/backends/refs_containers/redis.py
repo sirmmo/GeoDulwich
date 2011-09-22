@@ -24,7 +24,7 @@ log = logbook.Logger('geodulwich-refs_container-redis')
 
 import redis 
 
-class RedisRefsContainer(RefsContainer):
+class RefsContainerImplementation(RefsContainer):
     def __init__(self, container, db_num=1):
         self.db = redis.Redis(db=db_num)
         self.container = container
