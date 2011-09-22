@@ -27,13 +27,12 @@ log = logbook.Logger('geogit')
 from geodulwich.backends.refs_containers.redisrc import RefsContainerImplementation
 from geodulwich.backends.object_stores.mongoos import ObjectStoreImplementation
 
-from geodulwich import _stringify
-from geodulwich import _unstringify
+from geodulwich import GeoRepo
 
 
 
 
-class MongoRedisGeoRepo(BaseRepo):
+class MongoRedisGeoRepo(GeoRepo):
     def __init__(self, db_name, store_name, refs_name, host="localhost", port=27017):
         self.connection = Connection(host, port)
         self.db = self.connection[db_name]
@@ -44,14 +43,14 @@ class MongoRedisGeoRepo(BaseRepo):
         super(MongoRedisGeoRepo, self).__init__(object_store, refs)
         
     def _put_named_file(self, path, contents):
-        content = _stringify(contents)
+        content = self._stringify(contents)
         
         self._named_files.save({'_id':path, "content":content})
         
     def get_named_file(self, path):
         file = self._named_files.find_one({'_id':path})
         if file:
-            return _unstringify(file['content'])
+            return self._unstringify(file['content'])
         return None
     
     def open_index(self):
