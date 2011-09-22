@@ -13,8 +13,6 @@ from dulwich.objects import Blob
 from dulwich.pack import PackData, iter_sha1, write_pack_index_v2, Pack, load_pack_index_file
 from cStringIO import StringIO
 
-from pymongo import Connection
-
 # for the refstore
 from dulwich.repo import RefsContainer, SYMREF
 
@@ -35,16 +33,5 @@ class GeoObjectStore(BaseObjectStore):
     def packs(self):
         """List with pack objects."""
         return []
-    
-    def _stringify(self,  obj):
-        content = pickle.dumps(obj)
-        content = base64.b64encode(content)
-        
-        return content
-        
-    def _unstringify(self, string):
-        content = base64.b64decode(string)
-        content = pickle.loads(content)
-        
-        return StringIO(content)
+
         

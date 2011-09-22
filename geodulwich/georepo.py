@@ -27,7 +27,9 @@ log = logbook.Logger('geogit')
 from geodulwich.backends.refs_containers.redisrc import RefsContainerImplementation
 from geodulwich.backends.object_stores.mongoos import ObjectStoreImplementation
 
-import pickle
+from geodulwich import _stringify
+from geodulwich import _unstringify
+
 
 
 
