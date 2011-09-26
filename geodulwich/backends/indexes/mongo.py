@@ -1,0 +1,3 @@
+
+
+class GeoIndexImplementation(Index):

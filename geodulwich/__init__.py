@@ -29,6 +29,10 @@ import base64
 
 
 class GeoRepo(BaseRepo):
+    
+    def __init__(self):
+        self.bare = False
+    
     def _stringify(self,  obj):
         content = pickle.dumps(obj)
         content = base64.b64encode(content)
@@ -40,4 +44,20 @@ class GeoRepo(BaseRepo):
         content = pickle.loads(content)
         
         return StringIO(content)
+    
+    def stage(self, objects):
+        for obj in objects:
+            blob = Blob()
+                        
+    
+    def do_commit(self, message="", ):
+        pass
+    
+    def push(self, remote):
+        pass
 
+    def pull(self, remote):
+        pass
+    
+    def clone(self, target_path, origin="origin"):
+        pass
