@@ -1,3 +1,4 @@
 
 
 class GeoIndexImplementation(Index):
+    pass
